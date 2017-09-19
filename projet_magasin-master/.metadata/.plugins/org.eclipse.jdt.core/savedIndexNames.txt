@@ -1,0 +1,9 @@
+INDEX VERSION 1.130+U:\LP\java\projet_magasin-master\projet_magasin-master\.metadata\.plugins\org.eclipse.jdt.core
+565899265.index
+2672315831.index
+1721714348.index
+756006386.index
+2033839043.index
+2546076573.index
+2936170451.index
+1929933281.index
