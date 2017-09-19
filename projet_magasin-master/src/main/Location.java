@@ -158,20 +158,28 @@ public class Location {
 		Article a2 = new Matelas("2222221a", "BULTEX", "B28", 984, 120, 150, new double[] { 120, 555, 2048 }, 120);
 
 		Calendar dateLocation = Calendar.getInstance();
-		dateLocation.set(2017, 10, 19);
+		dateLocation.set(2017, Calendar.SEPTEMBER, 19);
 
 		Calendar dateRetour = Calendar.getInstance();
-		dateRetour.set(2017, 10, 22);
+		dateRetour.set(2017, Calendar.SEPTEMBER, 22);
 		Location locjp1 = new Location(Calendar.getInstance(), dateRetour);
 		locjp1.ajouterArticle(a1);
 
 		dateRetour = Calendar.getInstance();
-		dateRetour.set(2017, 10, 30);
+		dateRetour.set(2017, Calendar.SEPTEMBER, 30);
 		Location locjp2 = new Location(Calendar.getInstance(), dateRetour);
 		locjp2.ajouterArticle(a2);
 
 		jeanphi.ajouterLocation(locjp1);
 		jeanphi.ajouterLocation(locjp2);
+
+		dateRetour = Calendar.getInstance();
+		dateRetour.set(2017, Calendar.DECEMBER, 25);
+		Location locjlb1 = new Location(dateLocation, dateRetour);
+
+		dateRetour = Calendar.getInstance();
+		dateRetour.set(2017, Calendar.DECEMBER, 25);
+		Location locjlb = new Location(dateLocation, dateRetour);
 		try {
 			for (Location location : jeanphi.getLocations()) {
 				Location.archiver(location, jeanphi);
