@@ -190,4 +190,15 @@ public class Location {
 
 	}
 
+	/**
+	 * @return La liste des articles d'une commande
+	 * 
+	 */
+	public String toString() {
+		String lesArticles = "";
+		for (Article art : articles) {
+			lesArticles += "\t" + art.getMarque() + " - " + art.getModele() + " (ref " + art.getReference() + ")\n";
+		}
+		return lesArticles;
+	}
 }
