@@ -1,21 +1,26 @@
 package main;
 
 public abstract class Article {
-	
+
 	protected String reference;
 	protected String marque;
 	protected String modele;
 	protected double prix;
 	protected int stock;
-	
+
 	/**
 	 * Constructeur de la classe
 	 * 
-	 * @param reference - r�f�rence du produit
-	 * @param marque - marque du produit
-	 * @param modele - modele du produit
-	 * @param prix - prix par jour de location
-	 * @param stock - nombre de produits en stock
+	 * @param reference
+	 *            - r�f�rence du produit
+	 * @param marque
+	 *            - marque du produit
+	 * @param modele
+	 *            - modele du produit
+	 * @param prix
+	 *            - prix par jour de location
+	 * @param stock
+	 *            - nombre de produits en stock
 	 */
 	public Article(String reference, String marque, String modele, double prix, int stock) {
 		this.reference = reference;
@@ -33,7 +38,8 @@ public abstract class Article {
 	}
 
 	/**
-	 * @param reference the reference to set
+	 * @param reference
+	 *            the reference to set
 	 */
 	public void setReference(String reference) {
 		this.reference = reference;
@@ -47,7 +53,8 @@ public abstract class Article {
 	}
 
 	/**
-	 * @param marque the marque to set
+	 * @param marque
+	 *            the marque to set
 	 */
 	public void setMarque(String marque) {
 		this.marque = marque;
@@ -61,7 +68,8 @@ public abstract class Article {
 	}
 
 	/**
-	 * @param modele the modele to set
+	 * @param modele
+	 *            the modele to set
 	 */
 	public void setModele(String modele) {
 		this.modele = modele;
@@ -75,7 +83,8 @@ public abstract class Article {
 	}
 
 	/**
-	 * @param prix the prix to set
+	 * @param prix
+	 *            the prix to set
 	 */
 	public void setPrix(double prix) {
 		this.prix = prix;
@@ -89,13 +98,16 @@ public abstract class Article {
 	}
 
 	/**
-	 * @param stock the stock to set
+	 * @param stock
+	 *            the stock to set
 	 */
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-	
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return reference;
+	}
+
 }
