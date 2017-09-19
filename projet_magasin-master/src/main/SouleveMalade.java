@@ -12,7 +12,7 @@ public class SouleveMalade extends Article {
 	 * @param prix
 	 * @param stock
 	 * @param capaciteLevage
-	 * @param degrePrivot
+	 * @param degrePivot
 	 */
 	public SouleveMalade(String reference, String marque, String modele, double prix, int stock, int capaciteLevage,
 			int degrePivot) {
