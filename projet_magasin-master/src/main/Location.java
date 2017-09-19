@@ -1,27 +1,33 @@
 package main;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import exceptions.ArchivageException;
+
 public class Location {
+
+	private static final String REPERTOIRE_ARCHIVES = "files/loc/";
 
 	private List<Article> articles;
 	private Calendar dateLocation;
 	private Calendar dateRetour;
-	private double montant;
 
-	
 	/**
 	 * @param dateLocation
 	 * @param dateRetour
 	 * @param montant
 	 */
-	public Location(Calendar dateLocation, Calendar dateRetour, double montant) {
+	public Location(Calendar dateLocation, Calendar dateRetour) {
 		this.articles = new ArrayList<>();
 		this.dateLocation = dateLocation;
 		this.dateRetour = dateRetour;
-		this.montant = montant;
 	}
 
 	/**
@@ -30,11 +36,62 @@ public class Location {
 	 * @param dateRetour
 	 * @param montant
 	 */
-	public Location(List<Article> articles, Calendar dateLocation, Calendar dateRetour, double montant) {
+	public Location(List<Article> articles, Calendar dateLocation, Calendar dateRetour) {
 		this.articles = articles;
 		this.dateLocation = dateLocation;
 		this.dateRetour = dateRetour;
-		this.montant = montant;
+	}
+
+	/**
+	 * Ajoute un article dans le magasin, s'il existe, incrémente le stock avec
+	 * le stock de l'article à ajouter
+	 * 
+	 * @param article
+	 *            - article à ajouter
+	 */
+	public void ajouterArticle(Article article) {
+		if (articles.contains(article)) {
+			Article existant = articles.get(articles.indexOf(article));
+			existant.setStock(existant.getStock() + article.getStock());
+		} else {
+			articles.add(article);
+		}
+	}
+
+	/**
+	 * Retire un article de la liste d'articles du magasin
+	 * 
+	 * @param article
+	 *            - article à retirer
+	 */
+	public void supprimerArticle(Article article) {
+		articles.remove(articles.indexOf(article));
+	}
+
+	public static void archiver(Location location, Personne client) throws ArchivageException {
+		SimpleDateFormat formatNomFichier = new SimpleDateFormat("YYYYMM");
+		SimpleDateFormat formatAffichage = new SimpleDateFormat("dd/MM/YYYY");
+		String nomFichier = formatNomFichier.format(location.dateRetour.getTime()) + ".loc";
+
+		try {
+			FileWriter fw = new FileWriter(REPERTOIRE_ARCHIVES + nomFichier, true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			StringBuffer sb = new StringBuffer("");
+
+			sb.append(client.getNom() + " " + client.getPrenom() + " | ");
+			sb.append(location.calculerMontant() + " | ");
+			sb.append(formatAffichage.format(location.dateLocation.getTime()) + " | ");
+			sb.append(formatAffichage.format(location.dateRetour.getTime()) + " | ");
+			sb.append(location.articles);
+
+			bw.newLine();
+			bw.write(sb.toString());
+
+			bw.close();
+
+		} catch (IOException e) {
+			throw new ArchivageException(e.getMessage(), e.getCause());
+		}
 	}
 
 	/**
@@ -85,16 +142,44 @@ public class Location {
 	/**
 	 * @return the montant
 	 */
-	public double getMontant() {
+	public double calculerMontant() {
+		double montant = 0;
+		for (Article article : articles) {
+			montant += (article.getPrix() * ChronoUnit.DAYS.between(dateLocation.toInstant(), dateRetour.toInstant()));
+		}
 		return montant;
 	}
 
-	/**
-	 * @param montant
-	 *            the montant to set
-	 */
-	public void setMontant(double montant) {
-		this.montant = montant;
+	public static void main(String[] args) {
+		Personne jeanphi = new Personne("Babtou", "Jean-phillipe", "aaaa", "02020202");
+		Personne jules = new Personne("Lebris", "Jules", "Granchan", "04040404");
+
+		Article a1 = new FauteuilRoulant("111111a", "AUDI", "A1", 1000, 25, 38, 558000);
+		Article a2 = new Matelas("2222221a", "BULTEX", "B28", 984, 120, 150, new double[] { 120, 555, 2048 }, 120);
+
+		Calendar dateLocation = Calendar.getInstance();
+		dateLocation.set(2017, 10, 19);
+
+		Calendar dateRetour = Calendar.getInstance();
+		dateRetour.set(2017, 10, 22);
+		Location locjp1 = new Location(Calendar.getInstance(), dateRetour);
+		locjp1.ajouterArticle(a1);
+
+		dateRetour = Calendar.getInstance();
+		dateRetour.set(2017, 10, 30);
+		Location locjp2 = new Location(Calendar.getInstance(), dateRetour);
+		locjp2.ajouterArticle(a2);
+
+		jeanphi.ajouterLocation(locjp1);
+		jeanphi.ajouterLocation(locjp2);
+		try {
+			for (Location location : jeanphi.getLocations()) {
+				Location.archiver(location, jeanphi);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }
