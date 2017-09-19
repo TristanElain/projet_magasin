@@ -1,6 +1,5 @@
 package projet_magasin;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -12,7 +11,7 @@ public class Magasin {
 	private List<Personne> clients;
 
 	/**
-	 * Constructeur par défaut
+	 * Constructeur par dÃ©faut
 	 */
 	public Magasin() {
 		this.articles = new LinkedList<>();
@@ -29,23 +28,23 @@ public class Magasin {
 	}
 
 	/**
-	 * Ajoute un article dans le magasin, s'il existe, incrémente le stock avec le stock de l'article à ajouter
+	 * Ajoute un article dans le magasin, s'il existe, incrÃ©mente le stock avec le stock de l'article Ã  ajouter
 	 *  
-	 * @param article - article à ajouter
+	 * @param article - article Ã  ajouter
 	 */
 	public void ajouterArticle(Article article){
 		if(articles.contains(article)){
 			Article existant = articles.get(articles.indexOf(article));
 			existant.setStock(existant.getStock() + article.getStock());
 		} else {
-			articles.a
+			articles.add(article);
 		}
 	}
 	
 	/**
 	 * Ajoute une personne si elle n'existe pas
 	 *  
-	 * @param client - personne à ajouter
+	 * @param client - personne Ã  ajouter
 	 */
 	public boolean ajouterClient(Personne client){
 		boolean ajoutOk = false;
@@ -58,11 +57,11 @@ public class Magasin {
 	
 	
 	/**
-	 * Affiche la totalité des articles triés en fonction de <code>tri</code>
+	 * Affiche la totalitÃ© des articles triÃ©s en fonction de <code>tri</code>
 	 * 
 	 * @param tri
-	 *            - type de tri à effectuer. 0 = reference; 1 = marque; 2 =
-	 *            modèle; 3 = prix par jour
+	 *            - type de tri Ã  effectuer. 0 = reference; 1 = marque; 2 =
+	 *            modÃ¨le; 3 = prix par jour
 	 */
 	public void afficher(int tri) {
 		Collections.sort(articles, new Comparator<Article>() {
