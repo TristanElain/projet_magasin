@@ -1,12 +1,16 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Personne {
-	
+
 	private String nom;
 	private String prenom;
 	private String adresse;
 	private String telephone;
-	
+	private List<Location> locations;
+
 	/**
 	 * @param nom
 	 * @param prenom
@@ -18,6 +22,7 @@ public class Personne {
 		this.prenom = prenom;
 		this.adresse = adresse;
 		this.telephone = telephone;
+		this.locations = new ArrayList<>();
 	}
 
 	/**
@@ -28,7 +33,8 @@ public class Personne {
 	}
 
 	/**
-	 * @param nom the nom to set
+	 * @param nom
+	 *            the nom to set
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
@@ -42,7 +48,8 @@ public class Personne {
 	}
 
 	/**
-	 * @param prenom the prenom to set
+	 * @param prenom
+	 *            the prenom to set
 	 */
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
@@ -56,7 +63,8 @@ public class Personne {
 	}
 
 	/**
-	 * @param adresse the adresse to set
+	 * @param adresse
+	 *            the adresse to set
 	 */
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
@@ -70,12 +78,51 @@ public class Personne {
 	}
 
 	/**
-	 * @param telephone the telephone to set
+	 * @param telephone
+	 *            the telephone to set
 	 */
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	
-	
-	
+
+	/**
+	 * @return the locations
+	 */
+	public List<Location> getLocations() {
+		return locations;
+	}
+
+	/**
+	 * @param locations
+	 *            the locations to set
+	 */
+	public void setLocations(List<Location> locations) {
+		this.locations = locations;
+	}
+
+	/**
+	 * Ajoute une location à une personne
+	 * 
+	 * @param loc
+	 *            la location à ajouter
+	 */
+	public void ajouterLocation(Location loc) {
+		if (!this.locations.contains(loc)) {
+			this.locations.add(loc);
+		}
+	}
+
+	/**
+	 * Supprime une location d'une personne et archive la location
+	 * 
+	 * @param loc
+	 *            la location à supprimer
+	 */
+	public void supprimerLocation(Location loc) {
+		if (this.locations.contains(loc)) {
+			// loc.archiver();
+			this.locations.remove(loc);
+		}
+	}
+
 }
