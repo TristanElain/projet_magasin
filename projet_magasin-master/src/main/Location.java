@@ -11,7 +11,6 @@ public class Location {
 	private Calendar dateRetour;
 	private double montant;
 
-	
 	/**
 	 * @param dateLocation
 	 * @param dateRetour
@@ -97,4 +96,15 @@ public class Location {
 		this.montant = montant;
 	}
 
+	/**
+	 * @return La liste des articles d'une commande
+	 * 
+	 */
+	public String toString() {
+		String lesArticles = "";
+		for (Article art : articles) {
+			lesArticles += "\t" + art.getMarque() + " - " + art.getModele() + " (ref " + art.getReference() + ")\n";
+		}
+		return lesArticles;
+	}
 }
