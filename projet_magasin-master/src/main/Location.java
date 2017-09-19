@@ -1,4 +1,4 @@
-package projet_magasin;
+package main;
 
 import java.util.ArrayList;
 import java.util.Calendar;

@@ -1,4 +1,4 @@
-package projet_magasin;
+package main;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -28,34 +28,46 @@ public class Magasin {
 	}
 
 	/**
-	 * Ajoute un article dans le magasin, s'il existe, incrémente le stock avec le stock de l'article à ajouter
-	 *  
-	 * @param article - article à ajouter
+	 * Ajoute un article dans le magasin, s'il existe, incrémente le stock avec
+	 * le stock de l'article à ajouter
+	 * 
+	 * @param article
+	 *            - article à ajouter
 	 */
-	public void ajouterArticle(Article article){
-		if(articles.contains(article)){
+	public void ajouterArticle(Article article) {
+		if (articles.contains(article)) {
 			Article existant = articles.get(articles.indexOf(article));
 			existant.setStock(existant.getStock() + article.getStock());
 		} else {
 			articles.add(article);
 		}
 	}
-	
+
+	/**
+	 * Retire un article de la liste d'articles du magasin
+	 * 
+	 * @param article
+	 *            - article à retirer
+	 */
+	public void supprimerArticle(Article article) {
+		articles.remove(articles.indexOf(article));
+	}
+
 	/**
 	 * Ajoute une personne si elle n'existe pas
-	 *  
-	 * @param client - personne à ajouter
+	 * 
+	 * @param client
+	 *            - personne à ajouter
 	 */
-	public boolean ajouterClient(Personne client){
+	public boolean ajouterClient(Personne client) {
 		boolean ajoutOk = false;
-		if(!clients.contains(client)){
+		if (!clients.contains(client)) {
 			ajoutOk = clients.add(client);
 		}
-		
+
 		return ajoutOk;
 	}
-	
-	
+
 	/**
 	 * Affiche la totalité des articles triés en fonction de <code>tri</code>
 	 * 
@@ -65,25 +77,24 @@ public class Magasin {
 	 */
 	public void afficher(int tri) {
 		Collections.sort(articles, new Comparator<Article>() {
-			
-				
+
 			@Override
 			public int compare(Article o1, Article o2) {
 				switch (tri) {
 				case 0:
 					return o1.getReference().compareTo(o2.getReference());
-				case 1 :
+				case 1:
 					return o1.getMarque().compareTo(o2.getMarque());
-				case 2 :
+				case 2:
 					return o1.getModele().compareTo(o2.getModele());
-				case 3 : 
+				case 3:
 					return (int) Math.round(o1.getPrix() - o2.getPrix());
 				}
-				
+
 				return 0;
 			}
 		});
-		
+
 		System.out.println(articles.toString());
 	}
 

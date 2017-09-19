@@ -1,4 +1,4 @@
-package projet_magasin;
+package main;
 
 public class Personne {
 	

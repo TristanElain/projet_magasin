@@ -1,4 +1,4 @@
-package projet_magasin;
+package main;
 
 public abstract class Article {
 	
@@ -11,7 +11,7 @@ public abstract class Article {
 	/**
 	 * Constructeur de la classe
 	 * 
-	 * @param reference - référence du produit
+	 * @param reference - rï¿½fï¿½rence du produit
 	 * @param marque - marque du produit
 	 * @param modele - modele du produit
 	 * @param prix - prix par jour de location
