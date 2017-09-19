@@ -125,4 +125,21 @@ public class Personne {
 		}
 	}
 
+	/**
+	 * Affiche l'ensemble des locations
+	 * 
+	 * @return L'ensemble des locations de la personne
+	 * 
+	 */
+	public void afficherLocations() {
+		int i = 1;
+		for (Location loc : this.locations) {
+			System.out.println("Location " + i + " : ");
+			System.out.println("_________________");
+			System.out.println(loc);
+			System.out.println("\n");
+			i++;
+		}
+	}
+
 }
