@@ -1,4 +1,4 @@
-package main;
+package main.classes;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import exceptions.ArchivageException;
+import main.exceptions.ArchivageException;
 
 public class Location {
 
@@ -180,9 +180,13 @@ public class Location {
 		dateRetour = Calendar.getInstance();
 		dateRetour.set(2017, Calendar.DECEMBER, 25);
 		Location locjlb = new Location(dateLocation, dateRetour);
+		
 		try {
 			for (Location location : jeanphi.getLocations()) {
 				Location.archiver(location, jeanphi);
+			}
+			for (Location location : jules.getLocations()) {
+				Location.archiver(location, jules);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

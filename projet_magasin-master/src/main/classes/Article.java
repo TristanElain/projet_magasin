@@ -1,4 +1,4 @@
-package main;
+package main.classes;
 
 public abstract class Article {
 
@@ -107,7 +107,18 @@ public abstract class Article {
 
 	@Override
 	public String toString() {
-		return reference;
+		StringBuilder sb = new StringBuilder();
+		sb.append(" ref: " + reference);
+		sb.append(" -");
+		sb.append(" marque: " + marque);
+		sb.append(" -");
+		sb.append(" modele: " + modele);
+		sb.append(" -");
+		sb.append(" prix: " + prix);
+		sb.append(" -");
+		sb.append(" stock: " + stock);
+		
+		return sb.toString();
 	}
 
 }

@@ -3,10 +3,10 @@
  */
 package test;
 
-import main.FauteuilRoulant;
-import main.Magasin;
-import org.junit.Assert;
 import org.junit.Test;
+
+import main.classes.FauteuilRoulant;
+import main.classes.Magasin;
 
 /**
  * @author visiteur-info16

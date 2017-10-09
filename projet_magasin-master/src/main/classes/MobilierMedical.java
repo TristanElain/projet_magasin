@@ -1,4 +1,4 @@
-package main;
+package main.classes;
 
 public abstract class MobilierMedical extends Article {
 
