@@ -29,7 +29,7 @@ import main.classes.TableAlite;
 public class ArticlesController {
 	
 	@FXML
-	private AnchorPane rightPanel;	
+	private AnchorPane mainPanel;	
 	
 	@FXML
 	private ChoiceBox choiceBox;
@@ -83,16 +83,16 @@ public class ArticlesController {
 			pane.setContent(listView);
 		}
 		
-		rightPanel.getChildren().add(accordion);
-		accordion.setPrefWidth(rightPanel.getPrefWidth());
-		accordion.setMaxHeight(rightPanel.getPrefHeight()-60);
+		mainPanel.getChildren().add(accordion);
+		accordion.setPrefWidth(mainPanel.getPrefWidth());
+		accordion.setMaxHeight(mainPanel.getPrefHeight()-60);
 		
 		
 	}
 	
 	public void handleAdd(Event event) {
 		try {
-			AnchorPane addPopup = FXMLLoader.load(MainApp.class.getResource("view/AddArticle.fxml"));
+			AnchorPane addPopup = FXMLLoader.load(MainApp.class.getResource("view/popups/AddArticle.fxml"));
 			
 			// Création de la fenetre de dialogue en la liant à la fenetre principale
 	        Stage dialogStage = new Stage();

@@ -5,6 +5,7 @@ import java.util.List;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.classes.Article;
+import main.classes.Personne;
 
 public class DataAccesser {
 	
@@ -30,6 +31,10 @@ public class DataAccesser {
 	
 	public List<Article> getArticles() {
 		return mainApp.getArticles();
+	}
+	
+	public List<Personne> getClients() {
+		return mainApp.getClients();
 	}
 
 	public Stage getPrimaryStage() {

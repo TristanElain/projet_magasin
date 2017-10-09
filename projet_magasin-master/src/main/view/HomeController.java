@@ -1,8 +1,10 @@
 package main.view;
 
 import java.io.IOException;
+import java.util.List;
 
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -14,35 +16,32 @@ import main.MainApp;
 public class HomeController {
 	
 	@FXML
-	private SplitPane splitPane;
-	
-	@FXML
-	private Button articles;
-	
-	@FXML
-	private Button clients;
-	
-	@FXML
-	private Button logs;
-	
-	
+	private SplitPane splitPane;	
 
 	@FXML
 	private void initialize() {}
 	
 	
 	@FXML
-	private void handleClickArticles() {
+	private void handleClick(Event event) {
+		Button buttonClicked = (Button) event.getSource();
+		
 		AnchorPane articlesPane = null;
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/Articles.fxml"));
+			loader.setLocation(MainApp.class.getResource("view/"+buttonClicked.getText()+".fxml"));
 			articlesPane = (AnchorPane) loader.load();
 			
 			ObservableList<Node> list = splitPane.getItems();
 
-			AnchorPane leftPane = (AnchorPane) list.get(1);
-			leftPane.getChildren().add(articlesPane);
+			AnchorPane rightPane = (AnchorPane) list.get(1);
+			
+			List<Node> children = rightPane.getChildren();
+			//On évite d'entasser les Panels les uns sur les autres
+			if(!children.isEmpty()) {
+				children.clear();
+			}
+			children.add(articlesPane);
 			
 
 		} catch (IOException e) {

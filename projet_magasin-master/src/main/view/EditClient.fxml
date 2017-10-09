@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="mainPanel" prefHeight="798.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.EditClientController">
+   <children>
+      <SplitPane dividerPositions="0.18341708542713567" layoutX="150.0" layoutY="24.0" orientation="VERTICAL" prefHeight="798.0" prefWidth="941.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="32.0" text="Nom" />
+                  <Label layoutX="12.0" layoutY="91.0" text="Prénom" />
+                  <Label layoutX="470.0" layoutY="32.0" text="Adresse" />
+                  <Label layoutX="470.0" layoutY="91.0" text="Téléphone" />
+                  <TextField fx:id="champNom" layoutX="80.0" layoutY="27.0" />
+                  <TextField fx:id="champPrenom" layoutX="80.0" layoutY="86.0" />
+                  <TextField fx:id="champAdresse" layoutX="576.0" layoutY="27.0" />
+                  <TextField fx:id="champTelephone" layoutX="576.0" layoutY="86.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Button layoutX="863.0" layoutY="594.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="249.0" text="Enregistrer" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                  <Button layoutX="401.0" layoutY="591.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="249.0" text="Retour" />
+                  <ListView fx:id="listeLocations" layoutX="7.0" layoutY="74.0" prefHeight="507.0" prefWidth="731.0" />
+                  <Button layoutX="762.0" layoutY="146.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="141.0" text="Ajouter" />
+                  <Button layoutX="762.0" layoutY="226.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="141.0" text="Retirer" />
+                  <Label layoutX="25.0" layoutY="27.0" prefHeight="25.0" prefWidth="102.0" text="Locations">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
