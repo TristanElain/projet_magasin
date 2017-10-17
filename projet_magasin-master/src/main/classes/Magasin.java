@@ -1,9 +1,8 @@
 package main.classes;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class Magasin {
 
@@ -96,6 +95,45 @@ public class Magasin {
 		});
 
 		System.out.println(articles.toString());
+	}
+
+	public double calculerRevenuMensuel(Calendar c){
+		String REPERTOIRE_ARCHIVES = "files/loc/";
+		SimpleDateFormat formatNomFichier = new SimpleDateFormat("YYYYMM");
+		SimpleDateFormat formatAffichage = new SimpleDateFormat("dd/MM/YYYY");
+		String nomFichier = formatNomFichier.format(c.getTime()) + ".loc";
+		double som = 0;
+
+		try {
+			File f = new File(REPERTOIRE_ARCHIVES + nomFichier);
+			FileReader fr = new FileReader(f);
+			BufferedReader bw = new BufferedReader(fr);
+
+			BufferedReader reader = new BufferedReader(fr);
+			String line = null;
+
+
+
+			while ((line = reader.readLine()) != null) {
+				if (!"".equals(line)) {
+					String[] tab = line.split(",");
+					som += Double.parseDouble(tab[1]);
+				}
+			}
+			bw.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return som;
+	}
+
+	public static void main(String args[]){
+		Magasin m = new Magasin();
+
+		Double som = m.calculerRevenuMensuel(Calendar.getInstance());
+		System.out.println(som);
 	}
 
 }
