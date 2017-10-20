@@ -14,8 +14,8 @@ public class Matelas extends MobilierMedical {
 	 * @param dimension
 	 * @param temps
 	 */
-	public Matelas(String reference, String marque, String modele, double prix, int stock, int poids,
-			double[] dimension, double temps) {
+	public Matelas(String reference, String marque, String modele, Double prix, Integer stock, Integer poids,
+			Double[] dimension, Double temps) {
 		super(reference, marque, modele, prix, stock, poids, dimension);
 		this.tempsGonflage = temps;
 	}

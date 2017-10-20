@@ -3,7 +3,7 @@ package main.classes;
 public class SouleveMalade extends Article {
 
 	private int capaciteLevage;
-	private int degrePivot;
+	private double degrePivot;
 
 	/**
 	 * @param reference
@@ -14,8 +14,8 @@ public class SouleveMalade extends Article {
 	 * @param capaciteLevage
 	 * @param degrePivot
 	 */
-	public SouleveMalade(String reference, String marque, String modele, double prix, int stock, int capaciteLevage,
-			int degrePivot) {
+	public SouleveMalade(String reference, String marque, String modele, Double prix, Integer stock, Integer capaciteLevage,
+			Double degrePivot) {
 		super(reference, marque, modele, prix, stock);
 		this.capaciteLevage = capaciteLevage;
 		this.degrePivot = degrePivot;
@@ -39,7 +39,7 @@ public class SouleveMalade extends Article {
 	/**
 	 * @return the degrePivot
 	 */
-	public int getDegrePivot() {
+	public double getDegrePivot() {
 		return degrePivot;
 	}
 

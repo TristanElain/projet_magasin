@@ -25,8 +25,13 @@ public class DataAccesser {
 		return instance;
 	}
 	
+	
 	public static DataAccesser getInstance() {
 		return instance;
+	}
+	
+	public void showHomeChildView(String childName) {
+		mainApp.showHomeChildView(childName);
 	}
 	
 	public List<Article> getArticles() {

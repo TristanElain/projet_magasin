@@ -67,6 +67,6 @@ public class MultiOpenAccordion extends ScrollPane {
    }
  
    public void setExpandedPane(TitledPane expandedPane) {
-      expandedPane.setExpanded(true);
+      expandedPane.setExpanded(false);
    }
 }

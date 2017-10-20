@@ -22,7 +22,6 @@ public class Location {
 	/**
 	 * @param dateLocation
 	 * @param dateRetour
-	 * @param montant
 	 */
 	public Location(Calendar dateLocation, Calendar dateRetour) {
 		this.articles = new ArrayList<>();
@@ -154,8 +153,8 @@ public class Location {
 		Personne jeanphi = new Personne("Babtou", "Jean-phillipe", "aaaa", "02020202");
 		Personne jules = new Personne("Lebris", "Jules", "Granchan", "04040404");
 
-		Article a1 = new FauteuilRoulant("111111a", "AUDI", "A1", 1000, 25, 38, 558000);
-		Article a2 = new Matelas("2222221a", "BULTEX", "B28", 984, 120, 150, new double[] { 120, 555, 2048 }, 120);
+		Article a1 = new FauteuilRoulant("111111a", "AUDI", "A1", 1000d, 25, 38, 558000d);
+		Article a2 = new Matelas("2222221a", "BULTEX", "B28", 984d, 120, 150, new Double[] { 120d, 555d, 2048d }, 120d);
 
 		Calendar dateLocation = Calendar.getInstance();
 		dateLocation.set(2017, Calendar.SEPTEMBER, 19);

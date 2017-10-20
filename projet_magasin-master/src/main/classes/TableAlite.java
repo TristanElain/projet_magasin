@@ -11,8 +11,8 @@ public class TableAlite extends MobilierMedical {
 	 * @param poids
 	 * @param dimension
 	 */
-	public TableAlite(String reference, String marque, String modele, double prix, int stock, int poids,
-			double[] dimension) {
+	public TableAlite(String reference, String marque, String modele, Double prix, Integer stock, Integer poids,
+			Double[] dimension) {
 		super(reference, marque, modele, prix, stock, poids, dimension);
 		// TODO Auto-generated constructor stub
 	}

@@ -26,11 +26,11 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
                   <Button layoutX="863.0" layoutY="594.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="249.0" text="Enregistrer" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-                  <Button layoutX="401.0" layoutY="591.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="249.0" text="Retour" />
+                  <Button layoutX="401.0" layoutY="591.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="41.0" prefWidth="249.0" text="Annuler" />
                   <ListView fx:id="listeLocations" layoutX="7.0" layoutY="74.0" prefHeight="507.0" prefWidth="731.0" />
-                  <Button layoutX="762.0" layoutY="146.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="141.0" text="Ajouter" />
+                  <Button layoutX="762.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleNewLocation" prefHeight="41.0" prefWidth="141.0" text="Ajouter" />
                   <Button layoutX="762.0" layoutY="226.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="141.0" text="Retirer" />
-                  <Label layoutX="25.0" layoutY="27.0" prefHeight="25.0" prefWidth="102.0" text="Locations">
+                  <Label layoutX="25.0" layoutY="27.0" prefHeight="25.0" prefWidth="171.0" text="Locations en cours">
                      <font>
                         <Font size="18.0" />
                      </font>

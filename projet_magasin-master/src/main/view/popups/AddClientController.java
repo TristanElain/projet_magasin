@@ -7,6 +7,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import main.MainApp;
 import main.classes.Personne;
 import main.view.DataAccesser;
 
@@ -53,7 +54,7 @@ public class AddClientController {
 			
 			dataAccesser.getClients().add(newPersonne);
 			
-			// TODO - Afficher la fiche du client.
+			dataAccesser.showHomeChildView(MainApp.CLIENTS_VIEW_NAME);
 			
 			dialogStage.close();
 		}

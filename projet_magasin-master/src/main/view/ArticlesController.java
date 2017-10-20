@@ -25,6 +25,7 @@ import main.classes.LitMedicalise;
 import main.classes.Matelas;
 import main.classes.SouleveMalade;
 import main.classes.TableAlite;
+import main.view.popups.AddArticleController;
 
 public class ArticlesController {
 	
@@ -92,18 +93,23 @@ public class ArticlesController {
 	
 	public void handleAdd(Event event) {
 		try {
-			AnchorPane addPopup = FXMLLoader.load(MainApp.class.getResource("view/popups/AddArticle.fxml"));
+			AnchorPane addPopup;
 			
 			// Création de la fenetre de dialogue en la liant à la fenetre principale
 	        Stage dialogStage = new Stage();
 	        dialogStage.setTitle("Ajouter un article");
 	        dialogStage.initModality(Modality.WINDOW_MODAL);
 	        dialogStage.initOwner(DataAccesser.getInstance().getPrimaryStage());
+	        
+	        addPopup = ArticlePopupFactory.createPopup((String) choiceBox.getSelectionModel().getSelectedItem(), dialogStage);
+			
+	        
 	        Scene scene = new Scene(addPopup);
 	        dialogStage.setScene(scene);
+
 	        
 	        dialogStage.show();
-		} catch (IOException e) {
+		} catch (IOException  | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

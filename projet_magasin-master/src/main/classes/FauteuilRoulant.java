@@ -14,8 +14,8 @@ public class FauteuilRoulant extends Article {
 	 * @param assise
 	 * @param poids
 	 */
-	public FauteuilRoulant(String reference, String marque, String modele, double prix, int stock, int assise,
-			double poids) {
+	public FauteuilRoulant(String reference, String marque, String modele, Double prix, Integer stock, Integer assise,
+			Double poids) {
 		super(reference, marque, modele, prix, stock);
 		this.assise = assise;
 		this.poids = poids;

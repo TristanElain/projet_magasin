@@ -5,11 +5,12 @@ import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.sun.security.ntlm.Client;
-
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -22,6 +23,8 @@ import main.classes.TableAlite;
 import main.view.DataAccesser;
 
 public class MainApp extends Application {
+	public final static String CLIENTS_VIEW_NAME = "Clients";
+	public final static String ARTICLES_VIEW_NAME = "Articles";
 
 	private List<Article> articles;
 	
@@ -29,6 +32,7 @@ public class MainApp extends Application {
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
+	private AnchorPane homeView;
 
 	@Override
 	public void start(Stage primaryStage) {		
@@ -74,7 +78,7 @@ public class MainApp extends Application {
 			// Load person overview.
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("view/Home.fxml"));
-			AnchorPane homeView = (AnchorPane) loader.load();
+			homeView = (AnchorPane) loader.load();
 
 			// Set person overview into the center of root layout.
 			rootLayout.setCenter(homeView);
@@ -84,17 +88,42 @@ public class MainApp extends Application {
 		}
 	}
 	
+	public void showHomeChildView(String childName) {
+		AnchorPane articlesPane = null;
+		try {
+			SplitPane splitPane = (SplitPane) homeView.getChildren().get(0);
+		
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("view/"+childName+".fxml"));
+			articlesPane = (AnchorPane) loader.load();
+			
+			ObservableList<Node> list = splitPane.getItems();
+
+			AnchorPane rightPane = (AnchorPane) list.get(1);
+			
+			List<Node> children = rightPane.getChildren();
+			//On évite d'entasser les Panels les uns sur les autres
+			if(!children.isEmpty()) {
+				children.clear();
+			}
+			children.add(articlesPane);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	private void initDatas() {
 		articles = new LinkedList<>();
 		clients = new LinkedList<>();
 		
-		Article lit1 = new LitMedicalise("ref 1", "marque", "modele", 1000, 15, 20, new double[] {2d, 2d});
-		Article lit2 = new LitMedicalise("ref 2", "marque", "modele", 1000, 15, 20, new double[] {2d, 2d});
+		Article lit1 = new LitMedicalise("ref 1", "marque", "modele", 1000d, 15, 20, new Double[] {2d, 2d});
+		Article lit2 = new LitMedicalise("ref 2", "marque", "modele", 1000d, 15, 20, new Double[] {2d, 2d});
 		
 		articles.add(lit1);
 		articles.add(lit2);
-		articles.add(new Matelas("ref", "marque", "modele", 2000, 23, 21, new double[] {2d, 2d},  2d));
-		articles.add(new TableAlite("ref", "marque", "modele", 1000, 15, 20, new double[] {2d, 2d}));
+		articles.add(new Matelas("ref", "marque", "modele", 2000d, 23, 21, new Double[] {2d, 2d},  2d));
+		articles.add(new TableAlite("ref", "marque", "modele", 1000d, 15, 20, new Double[] {2d, 2d}));
 		
 		Personne tristan = new Personne("Elain", "Tristan", "Nantes", "0662935668");
 		
@@ -132,6 +161,7 @@ public class MainApp extends Application {
 
 	
 	public static void main(String[] args) {
+
 		launch(args);
 	}
 }

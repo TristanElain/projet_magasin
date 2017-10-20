@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="mainPanel" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.popups.AddLocationController">
+   <children>
+      <DatePicker fx:id="dateLocation" layoutX="201.0" layoutY="28.0" />
+      <Label layoutX="84.0" layoutY="33.0" text="Date de location" />
+      <Label layoutX="40.0" layoutY="77.0" text="Articles loués" />
+      <ScrollPane fx:id="scrollPane" layoutX="14.0" layoutY="108.0" prefHeight="404.0" prefWidth="552.0" />
+      <Button layoutX="538.0" layoutY="535.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="41.0" prefWidth="249.0" text="Enregister" />
+      <Button layoutX="610.0" layoutY="205.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="41.0" prefWidth="141.0" text="Ajouter" />
+   </children>
+</AnchorPane>

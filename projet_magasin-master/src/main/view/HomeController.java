@@ -17,36 +17,19 @@ public class HomeController {
 	
 	@FXML
 	private SplitPane splitPane;	
+	
+	private DataAccesser dataAccesser;
 
 	@FXML
-	private void initialize() {}
+	private void initialize() {
+		dataAccesser = dataAccesser.getInstance();
+	}
 	
 	
 	@FXML
 	private void handleClick(Event event) {
 		Button buttonClicked = (Button) event.getSource();
 		
-		AnchorPane articlesPane = null;
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/"+buttonClicked.getText()+".fxml"));
-			articlesPane = (AnchorPane) loader.load();
-			
-			ObservableList<Node> list = splitPane.getItems();
-
-			AnchorPane rightPane = (AnchorPane) list.get(1);
-			
-			List<Node> children = rightPane.getChildren();
-			//On évite d'entasser les Panels les uns sur les autres
-			if(!children.isEmpty()) {
-				children.clear();
-			}
-			children.add(articlesPane);
-			
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		dataAccesser.showHomeChildView(buttonClicked.getText());
 	}
 }

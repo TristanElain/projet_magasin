@@ -18,7 +18,7 @@ public class TestMagasin {
 	@Test
 	public void FauteuilleRoullant() {
 		Magasin magasin= new Magasin();
-		FauteuilRoulant f= new FauteuilRoulant("11111", "faut", "bmw", 1000, 2, 1, 10);
+		FauteuilRoulant f= new FauteuilRoulant("11111", "faut", "bmw", 1000d, 2, 1, 10d);
 		magasin.ajouterArticle(f);
 
 

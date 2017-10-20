@@ -14,8 +14,8 @@ public abstract class MobilierMedical extends Article {
 	 * @param poids
 	 * @param dimension
 	 */
-	public MobilierMedical(String reference, String marque, String modele, double prix, int stock, int poids,
-			double[] dimension) {
+	public MobilierMedical(String reference, String marque, String modele, Double prix, Integer stock, Integer poids,
+			Double[] dimension2) {
 		super(reference, marque, modele, prix, stock);
 		this.poidsMax = poids;
 		this.dimension = dimension;
