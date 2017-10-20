@@ -19,7 +19,7 @@
                      </font>
                   </Label>
                   <Button fx:id="clients" layoutY="221.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="40.0" prefWidth="234.0" text="Clients" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                  <Button fx:id="logs" layoutX="8.0" layoutY="744.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="234.0" text="Logs" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Button fx:id="logs" layoutX="8.0" layoutY="744.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="40.0" prefWidth="234.0" text="Logs" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />

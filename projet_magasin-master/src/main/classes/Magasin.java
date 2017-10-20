@@ -135,6 +135,22 @@ public class Magasin {
 		return som;
 	}
 
+	public List<Article> getArticles() {
+		return articles;
+	}
+
+	public void setArticles(List<Article> articles) {
+		this.articles = articles;
+	}
+
+	public List<Personne> getClients() {
+		return clients;
+	}
+
+	public void setClients(List<Personne> clients) {
+		this.clients = clients;
+	}
+
 	public static void main(String args[]){
 		Magasin m = new Magasin();
 

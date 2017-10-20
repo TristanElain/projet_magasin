@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import main.classes.Article;
 import main.classes.LitMedicalise;
 import main.classes.Location;
+import main.classes.Magasin;
 import main.classes.Matelas;
 import main.classes.Personne;
 import main.classes.TableAlite;
@@ -26,9 +27,7 @@ public class MainApp extends Application {
 	public final static String CLIENTS_VIEW_NAME = "Clients";
 	public final static String ARTICLES_VIEW_NAME = "Articles";
 
-	private List<Article> articles;
-	
-	private List<Personne> clients;
+	private Magasin magasin;
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
@@ -114,8 +113,8 @@ public class MainApp extends Application {
 	}
 	
 	private void initDatas() {
-		articles = new LinkedList<>();
-		clients = new LinkedList<>();
+		List<Article> articles = new LinkedList<>();
+		List<Personne> clients = new LinkedList<>();
 		
 		Article lit1 = new LitMedicalise("ref 1", "marque", "modele", 1000d, 15, 20, new Double[] {2d, 2d});
 		Article lit2 = new LitMedicalise("ref 2", "marque", "modele", 1000d, 15, 20, new Double[] {2d, 2d});
@@ -131,6 +130,7 @@ public class MainApp extends Application {
 		clients.add(new Personne("Le Bris", "Jules", "GrandChamps Des Fontaines", "0624097037"));
 		
 		Calendar dateLocation = Calendar.getInstance();
+		dateLocation.add(Calendar.DATE, -1);
 		Calendar dateRetour = Calendar.getInstance();
 		dateRetour.set(2017, Calendar.DECEMBER, 25);
 		Location loc1 = new Location(dateLocation, dateRetour);
@@ -145,20 +145,18 @@ public class MainApp extends Application {
 		tristan.ajouterLocation(loc1);
 		tristan.ajouterLocation(loc2);
 		
+		
+		this.magasin = new Magasin(articles, clients);
+		
 	}
 
 	public Stage getPrimaryStage() {
 		return primaryStage;
 	}
 
-	public List<Article> getArticles() {
-		return articles;
+	public Magasin getMagasin() {
+		return magasin;
 	}
-
-	public List<Personne> getClients() {
-		return clients;
-	}
-
 	
 	public static void main(String[] args) {
 

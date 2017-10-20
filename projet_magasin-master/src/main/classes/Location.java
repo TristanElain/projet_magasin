@@ -14,7 +14,7 @@ import main.exceptions.ArchivageException;
 
 public class Location {
 
-	private static final String REPERTOIRE_ARCHIVES = "files/loc/";
+	public static final String REPERTOIRE_ARCHIVES = "files/loc/";
 
 	private List<Article> articles;
 	private Calendar dateLocation;

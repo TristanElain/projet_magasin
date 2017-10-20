@@ -120,7 +120,7 @@ public class Personne {
 	 */
 	public void supprimerLocation(Location loc) {
 		if (this.locations.contains(loc)) {
-			// loc.archiver();
+			// La location est archivée par l'application pendant l'éxécution.
 			this.locations.remove(loc);
 		}
 	}

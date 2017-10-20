@@ -2,6 +2,7 @@ package main.view.popups;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import javafx.fxml.FXML;
@@ -26,6 +27,7 @@ public class AddArticleController {
 	private Stage dialogStage;
 	
 	private DataAccesser dataAccesser;
+	private Article article;
 	@FXML
 	private GridPane gridPanel;
 	
@@ -45,6 +47,20 @@ public class AddArticleController {
 	
 	@FXML
 	private void initialize() {
+		if(article != null) {
+			List<TextField> fields = new LinkedList<>();
+			for(Node node : gridPanel.getChildren()) {
+				if(node instanceof TextField) {
+					fields.add((TextField) node);
+				}
+			}
+			int index = 0;
+			fields.get(index++).setText(article.getReference());
+			fields.get(index++).setText(article.getMarque());
+			fields.get(index++).setText(article.getModele());
+			fields.get(index++).setText(Double.toString(article.getPrix()));
+			fields.get(index++).setText(Integer.toString(article.getStock()));
+		}
 	}
 	
 	@FXML
@@ -229,5 +245,9 @@ public class AddArticleController {
 	
 	public void setClassName(String className) {
 		this.classArticleName = className;
+	}
+	
+	public void setArticle(Article article) {
+		this.article = article;
 	}
 }

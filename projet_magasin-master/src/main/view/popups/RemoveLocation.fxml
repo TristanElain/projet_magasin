@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="300.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="main.view.popups.RemoveLocationController">
+   <children>
+      <DatePicker fx:id="dateRetour" layoutX="205.0" layoutY="59.0" />
+      <Label layoutX="97.0" layoutY="64.0" text="Date de retour" />
+      <Button layoutX="424.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="41.0" prefWidth="249.0" text="Enregistrer" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+   </children>
+</AnchorPane>
