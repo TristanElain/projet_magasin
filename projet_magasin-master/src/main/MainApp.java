@@ -116,8 +116,8 @@ public class MainApp extends Application {
 		List<Article> articles = new LinkedList<>();
 		List<Personne> clients = new LinkedList<>();
 		
-		Article lit1 = new LitMedicalise("ref 1", "marque", "modele", 1000d, 15, 20, new Double[] {2d, 2d});
-		Article lit2 = new LitMedicalise("ref 2", "marque", "modele", 1000d, 15, 20, new Double[] {2d, 2d});
+		Article lit1 = new LitMedicalise("ref 1", "marque", "modele", 1000d, 15, 20, new Double[] {2d, 2d}, new Double(100));
+		Article lit2 = new LitMedicalise("ref 2", "marque", "modele", 1000d, 15, 20, new Double[] {2d, 2d}, new Double(200));
 		
 		articles.add(lit1);
 		articles.add(lit2);
