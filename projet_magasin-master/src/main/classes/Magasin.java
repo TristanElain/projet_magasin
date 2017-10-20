@@ -97,11 +97,17 @@ public class Magasin {
 		System.out.println(articles.toString());
 	}
 
-	public double calculerRevenuMensuel(Calendar c){
+	/**
+	 * calcule le revenue du moi de la date passé en paramètre à partir des locations enregistrer de le fichier correspondant
+	 *
+	 * @param date
+	 * 			- la date d'un jour au format Calendar
+	 */
+	public double calculerRevenuMensuel(Calendar date){
 		String REPERTOIRE_ARCHIVES = "files/loc/";
 		SimpleDateFormat formatNomFichier = new SimpleDateFormat("YYYYMM");
 		SimpleDateFormat formatAffichage = new SimpleDateFormat("dd/MM/YYYY");
-		String nomFichier = formatNomFichier.format(c.getTime()) + ".loc";
+		String nomFichier = formatNomFichier.format(date.getTime()) + ".loc";
 		double som = 0;
 
 		try {
