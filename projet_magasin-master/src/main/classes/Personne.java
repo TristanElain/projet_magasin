@@ -128,8 +128,6 @@ public class Personne {
 	/**
 	 * Affiche l'ensemble des locations
 	 * 
-	 * @return L'ensemble des locations de la personne
-	 * 
 	 */
 	public void afficherLocations() {
 		int i = 1;

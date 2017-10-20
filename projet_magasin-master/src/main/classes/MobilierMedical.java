@@ -3,7 +3,7 @@ package main.classes;
 public abstract class MobilierMedical extends Article {
 
 	private int poidsMax;
-	private double[] dimension;
+	private Double[] dimension;
 
 	/**
 	 * @param reference
@@ -15,7 +15,7 @@ public abstract class MobilierMedical extends Article {
 	 * @param dimension
 	 */
 	public MobilierMedical(String reference, String marque, String modele, Double prix, Integer stock, Integer poids,
-			Double[] dimension2) {
+			Double[] dimension) {
 		super(reference, marque, modele, prix, stock);
 		this.poidsMax = poids;
 		this.dimension = dimension;
@@ -39,7 +39,7 @@ public abstract class MobilierMedical extends Article {
 	/**
 	 * @return the dimension
 	 */
-	public double[] getDimension() {
+	public Double[] getDimension() {
 		return dimension;
 	}
 
@@ -47,7 +47,7 @@ public abstract class MobilierMedical extends Article {
 	 * @param dimension
 	 *            the dimension to set
 	 */
-	public void setDimension(double[] dimension) {
+	public void setDimension(Double[] dimension) {
 		this.dimension = dimension;
 	}
 
