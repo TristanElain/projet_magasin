@@ -1,6 +1,7 @@
 package main.classes;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -33,7 +34,6 @@ public class Location {
 	 * @param articles
 	 * @param dateLocation
 	 * @param dateRetour
-	 * @param montant
 	 */
 	public Location(List<Article> articles, Calendar dateLocation, Calendar dateRetour) {
 		this.articles = articles;
@@ -73,14 +73,15 @@ public class Location {
 		String nomFichier = formatNomFichier.format(location.dateRetour.getTime()) + ".loc";
 
 		try {
-			FileWriter fw = new FileWriter(REPERTOIRE_ARCHIVES + nomFichier, true);
+			File f = new File(REPERTOIRE_ARCHIVES + nomFichier);
+			FileWriter fw = new FileWriter(f, true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			StringBuffer sb = new StringBuffer("");
 
-			sb.append(client.getNom() + " " + client.getPrenom() + " | ");
-			sb.append(location.calculerMontant() + " | ");
-			sb.append(formatAffichage.format(location.dateLocation.getTime()) + " | ");
-			sb.append(formatAffichage.format(location.dateRetour.getTime()) + " | ");
+			sb.append(client.getNom() + " " + client.getPrenom() + ",");
+			sb.append(location.calculerMontant() + ",");
+			sb.append(formatAffichage.format(location.dateLocation.getTime()) + ",");
+			sb.append(formatAffichage.format(location.dateRetour.getTime()) + ",");
 			sb.append(location.articles);
 
 			bw.newLine();
@@ -92,6 +93,8 @@ public class Location {
 			throw new ArchivageException(e.getMessage(), e.getCause());
 		}
 	}
+
+
 
 	/**
 	 * @return the articles
@@ -157,15 +160,15 @@ public class Location {
 		Article a2 = new Matelas("2222221a", "BULTEX", "B28", 984d, 120, 150, new Double[] { 120d, 555d, 2048d }, 120d);
 
 		Calendar dateLocation = Calendar.getInstance();
-		dateLocation.set(2017, Calendar.SEPTEMBER, 19);
+		dateLocation.set(2017, Calendar.OCTOBER, 19);
 
 		Calendar dateRetour = Calendar.getInstance();
-		dateRetour.set(2017, Calendar.SEPTEMBER, 22);
+		dateRetour.set(2017, Calendar.OCTOBER, 22);
 		Location locjp1 = new Location(Calendar.getInstance(), dateRetour);
 		locjp1.ajouterArticle(a1);
 
 		dateRetour = Calendar.getInstance();
-		dateRetour.set(2017, Calendar.SEPTEMBER, 30);
+		dateRetour.set(2017, Calendar.OCTOBER, 30);
 		Location locjp2 = new Location(Calendar.getInstance(), dateRetour);
 		locjp2.ajouterArticle(a2);
 
